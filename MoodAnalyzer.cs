@@ -8,21 +8,36 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalyzer
     {
-        public string AnalyzeMood(string message)
+        string message;
+        public MoodAnalyzer() { }
+        public MoodAnalyzer(string message)
         {
-            bool result1 = message.Contains("Happy", StringComparison.OrdinalIgnoreCase);
+            this.message = message;
+        }
+        public string AnalyzeMood()
+        {
+            try
+            {
+                bool result1 = message.Contains("Happy", StringComparison.OrdinalIgnoreCase);
 
-            if (result1)
+                if (result1)
+                {
+                    return "HAPPY";
+                }
+                else
+                {
+                    return "SAD";
+                }
+            }
+            catch
             {
                 return "HAPPY";
             }
-            bool result2 = message.Contains("Sad", StringComparison.OrdinalIgnoreCase);
-            if (result2)
-            {
-                return "SAD";
+        }
 
-            }
-            return null;
+        internal void AnalyzeMood(string? mood)
+        {
+            throw new NotImplementedException();
         }
     }
 }
